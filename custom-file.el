@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tsdh-dark))
  '(package-selected-packages
-   '(imenu-list imenu-anywhere lsp-mode go-mode yaml-mode helm company))
+   '(indent-guide dumb-jump lsp-ui imenu-list imenu-anywhere lsp-mode go-mode yaml-mode helm company))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

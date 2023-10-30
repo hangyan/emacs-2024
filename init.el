@@ -70,3 +70,8 @@
 
 
 (global-display-line-numbers-mode)
+
+
+
+;; indent-guide
+(indent-guide-global-mode)
