@@ -11,3 +11,9 @@
 ;; (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
 ;; (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
 ;; (define-key helm-map (kbd "C-z") #'helm-select-action)
+
+
+;; m-x
+;;(selectrum-mode +1)
+;;(global-set-key (kbd "C-x C-b") 'recentf-open) ; replace list-buffers
+

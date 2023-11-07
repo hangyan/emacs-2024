@@ -70,10 +70,6 @@
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 
-;; m-x
-;;(selectrum-mode +1)
-;;(global-set-key (kbd "C-x C-b") 'recentf-open) ; replace list-buffers
-
 
 ;; yaml-pro
 (add-hook 'yaml-mode-hook #'yaml-pro-mode)
@@ -145,3 +141,14 @@
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+
+
+
+;; lsp for python
+;; install: pip install python-lsp-server
+(add-hook 'python-mode-hook #'lsp-deferred)
+
+
+;; yas
+(yas-global-mode)
