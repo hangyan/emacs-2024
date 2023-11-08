@@ -35,7 +35,7 @@
 
 ;; window size
 (add-to-list 'default-frame-alist '(height . 120))
-(add-to-list 'default-frame-alist '(width . 160))
+(add-to-list 'default-frame-alist '(width . 100))
 
 ;; backup file
 (setq make-backup-files nil)
@@ -148,7 +148,10 @@
 ;; lsp for python
 ;; install: pip install python-lsp-server
 (add-hook 'python-mode-hook #'lsp-deferred)
-
+;; autoformat
+(add-hook 'python-mode-hook #'python-black-on-save-mode)
 
 ;; yas
 (yas-global-mode)
+
+
