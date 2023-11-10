@@ -155,3 +155,6 @@
 (yas-global-mode)
 
 
+;; ag search
+(global-set-key (kbd "C-c s") 'ag-project-regexp)
+

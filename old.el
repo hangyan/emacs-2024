@@ -17,3 +17,18 @@
 ;;(selectrum-mode +1)
 ;;(global-set-key (kbd "C-x C-b") 'recentf-open) ; replace list-buffers
 
+
+
+;; GPT
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'codeium)
+
+
+(add-hook 'python-mode-hook
+        (lambda ()
+            (setq-local completion-at-point-functions '(codeium-completion-at-point))))
+
+(setq company-frontend '(company-pseudo-tooltip-frontend company-preview-frontend))
+
+
+
