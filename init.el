@@ -10,18 +10,23 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 
-;; install these packages
-;; helm yaml-mode imenu-anywhere iemnu-list
-
-
 (setq package-archives '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
                          ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
                          ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")))
 
 
-(setq custom-file "~/.emacs.d/custom-file.el")
+(setq custom-file
+       (expand-file-name (concat "~/.emacs.d/"
+                                 (if (eq system-type 'windows-nt)
+                                     "win-"
+                                   "")
+                                 "emacs-custom.el")))
+(load custom-file t)
 
-(load-file custom-file)
+
+(defconst *is-a-mac* (eq system-type 'darwin))
+(defconst *is-a-win* (eq system-type 'windows-nt))
+
 
 
 (global-company-mode t)
@@ -34,8 +39,9 @@
 
 
 ;; window size
-(add-to-list 'default-frame-alist '(height . 120))
-(add-to-list 'default-frame-alist '(width . 100))
+(when *is-a-mac* 
+  (add-to-list 'default-frame-alist '(height . 120))
+  (add-to-list 'default-frame-alist '(width . 100)))
 
 ;; backup file
 (setq make-backup-files nil)
@@ -90,17 +96,6 @@
 (define-key helm-map (kbd "C-z") #'helm-select-action)
 (global-set-key (kbd "C-x C-b") 'recentf-open)
 
-;;golang
-
-
-
-;; (add-hook 'go-mode-hook
-;;           (lambda ()
-;;             (add-hook 'before-save-hook
-;;                       #'gofmt-before-save
-;;                       nil t)))
-
-
 ;; smartparens
 (require 'smartparens-config)
 (add-hook 'go-mode-hook 'smartparens-strict-mode)
@@ -127,10 +122,23 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 (set-exec-path-from-shell-PATH)
 
-(setenv "GOROOT" "/usr/local/go")
-(setenv "GOPATH" "/Users/yayu/Golang")
-(add-to-list 'exec-path "~/Golang/bin")
-(setenv "PATH" (concat  "/usr/local/go/bin" ":" (getenv "PATH")))
+
+(cond ((eq system-type 'windows-nt)
+        ;; Windows-specific code goes here.
+       (add-to-list 'exec-path 
+		    "c:/Users/win/AppData/Roaming/Python/Python310/Scripts")
+       (add-to-list 'exec-path "c:/Program Files/Git/bin")
+	(setenv "PATH" (mapconcat #'identity exec-path path-separator)))
+        ((eq system-type 'darwin)
+           ;; mac-specific code goes here.
+	   (setenv "GOROOT" "/usr/local/go")
+	   (setenv "GOPATH" "/Users/yayu/Golang")
+	   (add-to-list 'exec-path "~/Golang/bin")
+	   (setenv "PATH" (concat  "/usr/local/go/bin" ":" (getenv "PATH")))
+
+
+           ))
+
 
 
 (add-hook 'go-mode-hook #'lsp-deferred)
