@@ -32,3 +32,7 @@
 
 
 
+;; tree-sitter
+(require 'treesit-auto)
+(setq treesit-auto-install 'prompt)
+(global-treesit-auto-mode)

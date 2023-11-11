@@ -48,7 +48,6 @@
 
 
 ;; imenu
-
  (defun try-to-add-imenu ()
   (condition-case nil (imenu-add-to-menubar "Index") (error nil)))
  (add-hook 'font-lock-mode-hook 'try-to-add-imenu)
@@ -62,13 +61,9 @@
 (global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
 
 
-(global-display-line-numbers-mode)
-
-
-
 ;; indent-guide
 (indent-guide-global-mode)
-
+(global-display-line-numbers-mode)
 
 ;; full path
 (setq frame-title-format
@@ -128,6 +123,9 @@
        (add-to-list 'exec-path 
 		    "c:/Users/win/AppData/Roaming/Python/Python310/Scripts")
        (add-to-list 'exec-path "c:/Program Files/Git/bin")
+       (add-to-list 'exec-path "c:/Python310/Scripts")
+       (add-to-list 'exec-path "c:/ProgramData/chocolatey/bin")
+       (add-to-list 'exec-path "c:/Users/win/AppData/Local/Microsoft/WindowsApps")
 	(setenv "PATH" (mapconcat #'identity exec-path path-separator)))
         ((eq system-type 'darwin)
            ;; mac-specific code goes here.
@@ -135,8 +133,6 @@
 	   (setenv "GOPATH" "/Users/yayu/Golang")
 	   (add-to-list 'exec-path "~/Golang/bin")
 	   (setenv "PATH" (concat  "/usr/local/go/bin" ":" (getenv "PATH")))
-
-
            ))
 
 
@@ -166,3 +162,6 @@
 ;; ag search
 (global-set-key (kbd "C-c s") 'ag-project-regexp)
 
+
+;; flymake for lsp
+(require 'flymake-cursor)
