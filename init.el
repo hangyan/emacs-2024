@@ -154,6 +154,7 @@
 (add-hook 'python-mode-hook #'lsp-deferred)
 ;; autoformat
 (add-hook 'python-mode-hook #'python-black-on-save-mode)
+(setq lsp-response-timeout 5)
 
 ;; yas
 (yas-global-mode)
