@@ -187,3 +187,6 @@
 ;; global-diff
 (global-diff-hl-mode)
 
+;; dashboard
+(require 'dashboard)
+(dashboard-setup-startup-hook)
