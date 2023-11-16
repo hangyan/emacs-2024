@@ -165,3 +165,16 @@
 
 ;; flymake for lsp
 (require 'flymake-cursor)
+
+(setq display-buffer-alist
+      '(("^\\*Flymake diagnostics"
+	 (display-buffer-reuse-window
+	  display-buffer-in-side-window)
+	 (reusable-frames . visible)
+	 (side            . bottom)
+	 (window-height   . 0.20))))
+
+(global-set-key (kbd "C-c f e") 'flymake-show-buffer-diagnostics)
+
+;; hl-todo-mode
+(global-hl-todo-mode)
