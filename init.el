@@ -126,14 +126,18 @@
        (add-to-list 'exec-path "c:/Python310/Scripts")
        (add-to-list 'exec-path "c:/ProgramData/chocolatey/bin")
        (add-to-list 'exec-path "c:/Users/win/AppData/Local/Microsoft/WindowsApps")
-	(setenv "PATH" (mapconcat #'identity exec-path path-separator)))
-        ((eq system-type 'darwin)
-           ;; mac-specific code goes here.
-	   (setenv "GOROOT" "/usr/local/go")
-	   (setenv "GOPATH" "/Users/yayu/Golang")
-	   (add-to-list 'exec-path "~/Golang/bin")
-	   (setenv "PATH" (concat  "/usr/local/go/bin" ":" (getenv "PATH")))
-           ))
+       (setenv "GOROOT" "c:/Program Files/Go")
+       (setenv "GOPATH" "d:/go")
+       (add-to-list 'exec-path "c:/Program Files/go/bin")
+       (add-to-list 'exec-path "d:/go/bin")
+       (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
+      ((eq system-type 'darwin)
+       ;; mac-specific code goes here.
+       (setenv "GOROOT" "/usr/local/go")
+       (setenv "GOPATH" "/Users/yayu/Golang")
+       (add-to-list 'exec-path "~/Golang/bin")
+       (setenv "PATH" (concat  "/usr/local/go/bin" ":" (getenv "PATH")))
+       ))
 
 
 
@@ -179,3 +183,7 @@
 
 ;; hl-todo-mode
 (global-hl-todo-mode)
+
+;; global-diff
+(global-diff-hl-mode)
+
