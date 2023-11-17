@@ -190,3 +190,16 @@
 ;; dashboard
 (require 'dashboard)
 (dashboard-setup-startup-hook)
+
+
+
+;; projectil
+(projectile-mode +1)
+;; Recommended keymap prefix on macOS
+;;(when *is-a-mac*
+;;  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
+;; Recommended keymap prefix on Windows/Linux
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;; (setq helm-projectile-fuzzy-match nil)
+(require 'helm-projectile)
+(helm-projectile-on)

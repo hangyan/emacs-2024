@@ -6,7 +6,7 @@
  '(custom-enabled-themes '(misterioso))
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(hl-todo flymake-cursor yasnippet yaml-pro yaml-mode smartparens smart-mode-line simple-modeline selectrum python-black material-theme lsp-ui indent-guide imenu-list imenu-anywhere helm go-mode dumb-jump doom-modeline company ag))
+   '(helm-ag helm-projectile diff-hl dashboard hl-todo flymake-cursor yasnippet yaml-pro yaml-mode smartparens smart-mode-line simple-modeline selectrum python-black material-theme lsp-ui indent-guide imenu-list imenu-anywhere helm go-mode dumb-jump doom-modeline company ag))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
