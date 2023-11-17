@@ -13,4 +13,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Monaspace Xenon" :foundry "nil" :slant normal :weight regular :height 140 :width normal)))))
+ '(default ((t (:family "Monaspace Xenon" :foundry "nil" :slant normal :weight regular :height 140 :width normal))))
+ '(company-tooltip-common ((t (:foreground "gold"))))
+ '(company-tooltip-selection ((t (:background "DarkOrange1")))))
