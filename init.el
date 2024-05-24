@@ -156,8 +156,8 @@
 ;; lsp for python
 ;; install: pip install python-lsp-server
 (add-hook 'python-mode-hook #'lsp-deferred)
-;; autoformat
-(add-hook 'python-mode-hook #'python-black-on-save-mode)
+;; autoformat -- enable this for files you can control...
+;; (add-hook 'python-mode-hook #'python-black-on-save-mode)
 (setq lsp-response-timeout 5)
 
 ;; yas
@@ -203,3 +203,16 @@
 ;; (setq helm-projectile-fuzzy-match nil)
 (require 'helm-projectile)
 (helm-projectile-on)
+
+
+;; tabs
+
+(require 'centaur-tabs)
+(centaur-tabs-mode t)
+(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
+(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+
+(setq centaur-tabs-set-bar 'under)
+;; Note: If you're not using Spacmeacs, in order for the underline to display
+;; correctly you must add the following line:
+(setq x-underline-at-descent-line t)
