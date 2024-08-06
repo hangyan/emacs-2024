@@ -205,14 +205,28 @@
 (helm-projectile-on)
 
 
-;; tabs
 
-(require 'centaur-tabs)
-(centaur-tabs-mode t)
-(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
-(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+;; query-and-repalce function
 
-(setq centaur-tabs-set-bar 'under)
-;; Note: If you're not using Spacmeacs, in order for the underline to display
-;; correctly you must add the following line:
-(setq x-underline-at-descent-line t)
+(defun entire-buffer-replace (from to)
+  "Do search and replace on entire buffer without moving point."
+  (interactive "MReplace: \nMWith: ")
+  (save-excursion
+    (beginning-of-buffer)
+    (let ((case-fold-search nil))
+      (while (search-forward from nil t)
+        (replace-match to t t)))))
+
+(global-set-key (kbd "M-%") 'entire-buffer-replace)
+
+
+;; spell check
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+
+;; sql
+(setq sqlformat-command 'pgformatter)
+(setq sqlformat-args '("-s2" "-g"))
+(add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
+
+
