@@ -9,7 +9,7 @@
  '(dumb-jump-prefer-searcher 'ag)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(vscode-dark-plus-theme symbol-overlay sqlformat sql-indent flycheck dired-sidebar centaur-tabs magit helm-ag helm-projectile diff-hl dashboard hl-todo flymake-cursor yasnippet yaml-pro yaml-mode smartparens smart-mode-line simple-modeline selectrum python-black material-theme lsp-ui indent-guide imenu-list imenu-anywhere helm go-mode dumb-jump doom-modeline company ag))
+   '(multiple-cursors project-explorer treemacs filetree vscode-dark-plus-theme symbol-overlay sqlformat sql-indent flycheck dired-sidebar centaur-tabs magit helm-ag helm-projectile diff-hl dashboard hl-todo flymake-cursor yasnippet yaml-pro yaml-mode smartparens smart-mode-line simple-modeline selectrum python-black material-theme lsp-ui indent-guide imenu-list imenu-anywhere helm go-mode dumb-jump doom-modeline company ag))
  '(python-black-extra-args '("-S"))
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -17,6 +17,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "PT Mono" :foundry "nil" :slant normal :weight regular :height 140 :width normal))))
+ '(default ((t (:family "Cascadia Code NF" :foundry "nil" :slant normal :weight regular :height 160 :width normal))))
  '(company-tooltip-common ((t (:foreground "gold"))))
  '(company-tooltip-selection ((t (:background "DarkOrange1")))))

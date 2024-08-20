@@ -23,6 +23,8 @@
                                  "emacs-custom.el")))
 (load custom-file t)
 
+(add-to-list 'load-path "~/.emacs.d/lib/")
+
 
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst *is-a-win* (eq system-type 'windows-nt))
@@ -230,3 +232,47 @@
 (add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
 
 
+
+;; project-exploer
+;; (global-set-key (kbd "C-x p j") 'project-explorer-toggle)
+
+
+;; multi cursors
+(require 'multiple-cursors)
+
+
+;; function to open my init file.
+
+(defun my-open-init-file ()
+  "Open the init file."
+  (interactive)
+  (find-file user-init-file))
+
+
+;; custom menubar
+(defvar my-menu-bar-menu (make-sparse-keymap "Misc"))
+(define-key global-map [menu-bar my-menu] (cons "Misc" my-menu-bar-menu))
+
+(define-key my-menu-bar-menu [treemacs]
+  '(menu-item "Treemacs" treemacs :help "Open Treemacs"))
+(define-key my-menu-bar-menu [project-explorer-toggle]
+	    '(menu-item "Project Explorer" project-explorer-toggle :help "Project Explorer"))
+(define-key my-menu-bar-menu [my-open-init-file]
+	    '(menu-item "Open Init File" my-open-init-file :help "Edit emacs init file"))
+
+
+
+;;; search
+(setq highlight-symbol-on-navigation-p t)
+
+(defun backward-symbol (arg)
+  (interactive "p")
+  (forward-symbol (- arg)))
+(global-set-key (kbd "M-b") 'backward-symbol)
+(global-set-key (kbd "M-f") 'forward-symbol)
+
+
+
+;;; buff switc
+;; (require 'buff-menu+)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
