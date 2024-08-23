@@ -137,7 +137,10 @@
        ;; mac-specific code goes here.
        (setenv "GOROOT" "/usr/local/go")
        (setenv "GOPATH" "/Users/yayu/Golang")
+       
        (add-to-list 'exec-path "~/Golang/bin")
+       (if (file-exists-p "~/.go.env")
+	   (load-env-vars "~/.go.env"))
        (setenv "PATH" (concat  "/usr/local/go/bin" ":" (getenv "PATH")))
        ))
 
@@ -276,3 +279,12 @@
 ;;; buff switc
 ;; (require 'buff-menu+)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
+
+
+;;; mode line
+
+;; Run: M-x nerd-icons-install-fonts
+(doom-modeline-mode 1)
+
+(setq nerd-icons-scale-factor 1.1)
+
